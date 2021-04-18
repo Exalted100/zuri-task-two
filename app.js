@@ -4,7 +4,7 @@ const http = require("http");
 const { default: axios } = require("axios");
 
 const app = async () => {
-    const jsonFile = await JSON.stringify(axios.get("http://jsonplaceholder.typicode.com/posts"))
+    const jsonFile = JSON.stringify(await (await axios.get("http://jsonplaceholder.typicode.com/posts")).data)
 
     try {
         fs.writeFile("./result/posts.json", jsonFile, "utf-8", (err) => {
