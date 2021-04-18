@@ -7,10 +7,9 @@ const app = async () => {
     const jsonFile = await JSON.stringify(axios.get("http://jsonplaceholder.typicode.com/posts"))
 
     try {
-        fs.writeFile("./result/posts.json", (jsonFile), "utf-8", (err) => {
+        fs.writeFile("./result/posts.json", jsonFile, "utf-8", (err) => {
             console.log("file written")
         })
-        console.log(jsonFile)
     } catch (err) {
         console.log(`the error is ${err}`)
     }
